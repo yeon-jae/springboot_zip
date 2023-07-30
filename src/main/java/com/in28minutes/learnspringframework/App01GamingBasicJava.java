@@ -1,11 +1,9 @@
 package com.in28minutes.learnspringframework;
 
 import com.in28minutes.learnspringframework.game.GameRunner;
-import com.in28minutes.learnspringframework.game.MarioGame;
 import com.in28minutes.learnspringframework.game.PackMan;
-import com.in28minutes.learnspringframework.game.SuperContraGame;
 
-public class AppGamingBasicJava {
+public class App01GamingBasicJava {
     public static  void main(String[] args){
         //gamerRunner클래스 생성
         //var game= new MarioGame();
