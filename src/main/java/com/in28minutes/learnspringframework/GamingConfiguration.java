@@ -14,18 +14,12 @@ public class GamingConfiguration {
         var game = new PackMan();
         return game;
     }
+    @Bean
+    public GameRunner gameRunner(GamingConsole game){
+        var gameRunner=new GameRunner(game);
+        return gameRunner;
+
+    }
+
 }
 
-
-
-
-/*    public static  void main(String[] args){
-        //gamerRunner클래스 생성
-        //var game= new MarioGame();
-        //var game =new SuperContraGame();
-        var game= new PackMan();  //1. 객체 생성
-        var gameRunner= new GameRunner(game); //2.겍체 생성 +writing of dependencies
-        //GameConsole은 GameRunner클래스의 의존성
-        gameRunner.run();
-}
- */
