@@ -1,6 +1,7 @@
-package com.practice.springboot.learningspringboot;
+package com.practice.springboot.learningspringboot.dto;
 
-public class Product {
+
+public class ProductItem {
 
     /*
     {
@@ -20,7 +21,7 @@ public class Product {
     private int productPrice;
 
     //constructor
-    public Product(long productId, String productCode, String productName, String productPurpose, int productPrice) {
+    public ProductItem(long productId, String productCode, String productName, String productPurpose, int productPrice) {
         super();
         this.productId = productId;
         this.productCode = productCode;
@@ -31,26 +32,48 @@ public class Product {
 
     //getter
 
-
     public long getProductId() {
         return productId;
+    }
+
+    public void setProductId(long productId) {
+        this.productId = productId;
     }
 
     public String getProductCode() {
         return productCode;
     }
 
+    public void setProductCode(String productCode) {
+        this.productCode = productCode;
+    }
+
     public String getProductName() {
         return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public String getProductPurpose() {
         return productPurpose;
     }
 
+    public void setProductPurpose(String productPurpose) {
+        this.productPurpose = productPurpose;
+    }
+
     public int getProductPrice() {
         return productPrice;
     }
+
+    public void setProductPrice(int productPrice) {
+        this.productPrice = productPrice;
+    }
+
+
+    //setter
 
     @Override
     public String toString() {
