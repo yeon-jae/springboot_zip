@@ -1,9 +1,9 @@
 package com.practice.springboot.learningspringboot.controller;
 
 import com.practice.springboot.learningspringboot.dto.ProductItem;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 /*
 {
@@ -22,7 +22,17 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductController {
     //courses , Course: id,name,author
 //3.product : 누군가 /product를 입력하면 코스 목록을 반환
-    @GetMapping("product")
+    @PostMapping("/products")
+    public ResponseEntity<String> addProduct(@RequestBody ProductItem productItem){
+        return ResponseEntity.status(HttpStatus.CREATED).body("Product successfully");
+    }
+
+
+
+
+
+
+    @GetMapping("/products")
     public String product(ProductItem productItem){
         System.out.println(productItem.getProductId());
         System.out.println(productItem.getProductCode());
@@ -32,5 +42,9 @@ public class ProductController {
 
         return productItem.toString();
     }
+
+
+
+
 
 }

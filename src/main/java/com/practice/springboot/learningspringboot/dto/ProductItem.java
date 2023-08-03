@@ -1,6 +1,7 @@
 package com.practice.springboot.learningspringboot.dto;
 
 
+
 public class ProductItem {
 
     /*
@@ -14,6 +15,7 @@ public class ProductItem {
 
      */
     //2.포함할 모든 속성을 정의
+
     private long productId;
     private String productCode;
     private String productName;
