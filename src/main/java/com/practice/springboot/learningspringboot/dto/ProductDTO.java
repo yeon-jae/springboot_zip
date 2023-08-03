@@ -2,7 +2,7 @@ package com.practice.springboot.learningspringboot.dto;
 
 
 
-public class ProductItem {
+public class ProductDTO {
 
     /*
     {
@@ -23,7 +23,7 @@ public class ProductItem {
     private int productPrice;
 
     //constructor
-    public ProductItem(long productId, String productCode, String productName, String productPurpose, int productPrice) {
+    public ProductDTO(long productId, String productCode, String productName, String productPurpose, int productPrice) {
         super();
         this.productId = productId;
         this.productCode = productCode;

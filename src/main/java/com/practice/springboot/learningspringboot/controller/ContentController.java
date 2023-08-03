@@ -10,16 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-/*
-{
-        "productId":1,
-        "productCode:AAA",
-        "productName":"일회용마스크",
-        "productPurpose":"황사, 코로나 예방",
-        "productPrice":"가격"
-        }
-
- */
 //요청에서 반환할 값
 //1. restAPI만들기-RestController주석 사용-spring이 알아서 컨트롤러로 인식하도록 함
 @RestController
