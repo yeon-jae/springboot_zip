@@ -1,6 +1,8 @@
 package com.springboot.rest.webservices.restfulwebservice.user;
 
 import jakarta.validation.Valid;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -8,6 +10,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 import java.util.List;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 
 //RestAPI구현
@@ -23,13 +27,18 @@ public class UserResource {
     public List<User> retrieveAllUsers(){
         return service.findAll();
     }
+
+    //http://localhost::8080/users 모든 사용자의 세부사항을 알 수 잇음
+
     @GetMapping("/users/{id}")
-    public User retrieveUser(@PathVariable int id){
+    public EntityModel<User> retrieveUser(@PathVariable int id){
         User user=service.findOne(id);
-        if(user==null){
-            throw new UserNotFoundException("id:"+id);
-        }
-        return user;
+        if(user==null)
+            throw new UserNotFoundException("id:" + id);
+            EntityModel<User> entityModel = EntityModel.of(user);
+            WebMvcLinkBuilder link = linkTo(methodOn(this.getClass()).retrieveAllUsers());
+            entityModel.add(link.withRel("all-users"));
+            return entityModel;
     }
     //delete user
 

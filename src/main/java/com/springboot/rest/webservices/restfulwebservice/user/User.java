@@ -1,5 +1,6 @@
 package com.springboot.rest.webservices.restfulwebservice.user;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 
@@ -9,7 +10,8 @@ public class User {
     private Integer id;
 
     //검증 조건
-    @Size(min = 2,message = "name should have aileast 2 characters")
+    @Size(min = 2,message = "name should have at least 2 characters")
+    @JsonProperty("user_name")
     private String name;
 
     //생일은 과거의 날로 출력되게
