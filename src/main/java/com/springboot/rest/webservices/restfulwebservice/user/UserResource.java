@@ -1,5 +1,6 @@
 package com.springboot.rest.webservices.restfulwebservice.user;
 
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -30,10 +31,17 @@ public class UserResource {
         }
         return user;
     }
+    //delete user
+
+    @DeleteMapping("/users/{id}")
+    public void deleteUser(@PathVariable int id){
+      service.deleteById(id);
+    }
+
 
     //post
     @PostMapping("/users")
-    public ResponseEntity<User> createUser (@RequestBody User user){
+    public ResponseEntity<User> createUser (@Valid @RequestBody User user){
         //request body: 사용자의 정보를 담음,user bean과 매핑
         User savedUser=service.save(user);
         //201요청 받기

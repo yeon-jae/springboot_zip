@@ -1,10 +1,19 @@
 package com.springboot.rest.webservices.restfulwebservice.user;
 
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Size;
+
 import java.time.LocalDate;
 
 public class User {
     private Integer id;
+
+    //검증 조건
+    @Size(min = 2,message = "name should have aileast 2 characters")
     private String name;
+
+    //생일은 과거의 날로 출력되게
+    @Past(message = "birthday should be in the past")
     private LocalDate birthDate;
 
     //constructor
